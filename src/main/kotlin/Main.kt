@@ -15,7 +15,8 @@ fun main() = runBlocking {
     }.run {
         ChatConfig(
             apiUrl = this.getProperty("api.url") ?: error("API_URL required"),
-            apiKey = this.getProperty("api.key") ?: error("API_KEY required")
+            apiKey = this.getProperty("api.key") ?: error("API_KEY required"),
+            defaultModel = this.getProperty("api.model") ?: "deepseek-r1",
         )
     }
     val client : ChatClient = run {
